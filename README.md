@@ -21,11 +21,8 @@ flowchart LR
     C --> D[Chainlit App]
 
     %% Flecha inferior para JWT header injection
-    C --- E
+    C --- E[(with JWT header injection)]
     E -.-> D
-    E["(with JWT header injection)"]:::note
-
-    classDef note fill=none,stroke=none,color=black;
 ```
 
 1. **Nginx Reverse Proxy**: Handles authentication via `auth_request` and routes traffic
