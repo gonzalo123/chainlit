@@ -1,22 +1,23 @@
+# Building an AI Frontend with Chainlit and OAuth2 Authentication
+
 Today we'll explore how to build a secure AI frontend using Chainlit. Chainlit is Python framework that allows us to create interactive AI applications. In this example we are going to reuse the weather tool created in a previous post. Also, we will implement OAuth2 authentication with a Nginx as a reverse proxy.
 
 The project consists of four main components:
 
 ```
-┌─────────────┐    ┌─────────────┐    ┌─────────────┐    ┌─────────────┐
-│    Client   │───▶│    Nginx    │───▶│   OAuth2    │    │  Chainlit   │
-│   Browser   │    │   Proxy     │    │   Server    │    │    App      │
-└─────────────┘    └─────────────┘    └─────────────┘    └─────────────┘
-                          │                                      ▲
-                          └──────────────────────────────────────┘
-                               (with JWT header injection)
+┌─────────┐  ┌───────┐  ┌────────┐ ┌──────────┐
+│  Client │─▶│ Nginx │─▶│ OAuth2 │ │ Chainlit │
+│ Browser │  │ Proxy │  │ Server │ │ App      │
+└─────────┘  └───────┘  └────────┘ └──────────┘
+                          │            ▲
+                          └────────────┘
+                     (with JWT header injection)
 ```
 
 1. **Nginx Reverse Proxy**: Handles authentication via `auth_request` and routes traffic
 2. **Fake OAuth Server**: Simple Flask app that simulates OAuth2 authentication
 3. **Chainlit Application**: The main chat interface with AI capabilities
 4. **Strands AI Agent**: Weather-focused AI assistant with custom tools
-
 
 The Nginx configuration implements OAuth2 authentication using the `auth_request` module:
 
@@ -114,7 +115,6 @@ agent = get_agent(
 **Base Tools Include:**
 - Calculator
 - Code interpreter
-- Browser access
 - Current time
 - Batch processing
 - Think (reasoning tool)

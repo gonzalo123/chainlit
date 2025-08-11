@@ -5,13 +5,13 @@ Today we'll explore how to build a secure AI frontend using Chainlit. Chainlit i
 The project consists of four main components:
 
 ```
-┌─────────────┐    ┌─────────────┐    ┌─────────────┐    ┌─────────────┐
-│    Client   │───▶│    Nginx    │───▶│   OAuth2    │    │  Chainlit   │
-│   Browser   │    │   Proxy     │    │   Server    │    │    App      │
-└─────────────┘    └─────────────┘    └─────────────┘    └─────────────┘
-                          │                                      ▲
-                          └──────────────────────────────────────┘
-                               (with JWT header injection)
+┌─────────┐  ┌───────┐  ┌────────┐ ┌──────────┐
+│  Client │─▶│ Nginx │─▶│ OAuth2 │ │ Chainlit │
+│ Browser │  │ Proxy │  │ Server │ │ App      │
+└─────────┘  └───────┘  └────────┘ └──────────┘
+                          │            ▲
+                          └────────────┘
+                     (with JWT header injection)
 ```
 
 1. **Nginx Reverse Proxy**: Handles authentication via `auth_request` and routes traffic
@@ -117,7 +117,6 @@ agent = get_agent(
 **Base Tools Include:**
 - Calculator
 - Code interpreter
-- Browser access
 - Current time
 - Batch processing
 - Think (reasoning tool)

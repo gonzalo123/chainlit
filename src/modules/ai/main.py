@@ -6,7 +6,6 @@ from strands import Agent
 from strands import tool
 from strands.models import BedrockModel
 from strands_tools import calculator, current_time, think, batch
-from strands_tools.browser import AgentCoreBrowser
 from strands_tools.code_interpreter.agent_core_code_interpreter import AgentCoreCodeInterpreter
 
 from modules.ai.tools import WeatherTools
@@ -19,8 +18,7 @@ logger = logging.getLogger(__name__)
 
 def get_all_base_tools() -> List[tool]:
     code_interpreter = AgentCoreCodeInterpreter(region=AWS_REGION)
-    browser_client = AgentCoreBrowser(region=AWS_REGION)
-    return [calculator, think, code_interpreter.code_interpreter, current_time, batch, browser_client.browser]
+    return [calculator, think, code_interpreter.code_interpreter, current_time, batch]
 
 
 def get_all_custom_tools() -> List[tool]:
