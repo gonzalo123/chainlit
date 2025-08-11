@@ -188,3 +188,5 @@ async def handle_message(message: cl.Message):
 ```
 
 And that's all. Thanks to Chainlit, we can build AI frontends and integrate them with OAuth2 authentication in a secure and efficient way. The combination of Chainlit's interactive capabilities and Nginx's robust authentication features provides a solid foundation for building AI applications that require user authentication.
+
+![img2.png](img/img2.png)

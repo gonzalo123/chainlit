@@ -1,5 +1,3 @@
-# Building an AI Frontend with Chainlit and OAuth2 Authentication
-
 Today we'll explore how to build a secure AI frontend using Chainlit. Chainlit is Python framework that allows us to create interactive AI applications. In this example we are going to reuse the weather tool created in a previous post. Also, we will implement OAuth2 authentication with a Nginx as a reverse proxy.
 
 The project consists of four main components:
@@ -19,9 +17,6 @@ The project consists of four main components:
 3. **Chainlit Application**: The main chat interface with AI capabilities
 4. **Strands AI Agent**: Weather-focused AI assistant with custom tools
 
-## 🔐 Authentication Flow
-
-### 1. Nginx Configuration with auth_request
 
 The Nginx configuration implements OAuth2 authentication using the `auth_request` module:
 
@@ -55,14 +50,11 @@ server {
     }
 }
 ```
-
 **Key Features:**
 - Every request to `/` triggers an authentication check via `/oauth2/auth`
 - JWT token is extracted from the OAuth response and forwarded to Chainlit
 - Unauthenticated users are redirected to the OAuth sign-in page
 - The JWT token is passed to Chainlit via the `X-User-JWT` header
-
-### 2. Fake OAuth Server
 
 A simple Flask application simulates an OAuth2 provider for demonstration purposes. In a production environment, you would replace this with a real OAuth2 provider or implemente the whole OAuth2 flow.
 
@@ -82,7 +74,6 @@ def auth():
     logger.info("Fake OAuth authentication successful")
     return response
 ```
-
 
 Chainlit processes the JWT token via a custom header authentication callback:
 
