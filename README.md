@@ -4,15 +4,6 @@ Today we'll explore how to build a secure AI frontend using Chainlit. Chainlit i
 
 The project consists of four main components:
 
-```
-┌─────────┐  ┌───────┐  ┌────────┐ ┌──────────┐
-│  Client │─▶│ Nginx │─▶│ OAuth2 │ │ Chainlit │
-│ Browser │  │ Proxy │  │ Server │ │ App      │
-└─────────┘  └───────┘  └────────┘ └──────────┘
-                          │            ▲
-                          └────────────┘
-                     (with JWT header injection)
-```
 
 ```mermaid
 flowchart LR
