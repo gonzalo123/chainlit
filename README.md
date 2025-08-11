@@ -14,6 +14,20 @@ The project consists of four main components:
                      (with JWT header injection)
 ```
 
+```mermaid
+flowchart LR
+    A[Client Browser] --> B[Nginx Proxy]
+    B --> C[OAuth2 Server]
+    C --> D[Chainlit App]
+
+    %% Flecha inferior para JWT header injection
+    C --- E
+    E -.-> D
+    E["(with JWT header injection)"]:::note
+
+    classDef note fill=none,stroke=none,color=black;
+```
+
 1. **Nginx Reverse Proxy**: Handles authentication via `auth_request` and routes traffic
 2. **Fake OAuth Server**: Simple Flask app that simulates OAuth2 authentication
 3. **Chainlit Application**: The main chat interface with AI capabilities
