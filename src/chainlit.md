@@ -1,6 +1,6 @@
 # Building an AI Frontend with Chainlit and OAuth2 Authentication
 
-Today we'll explore how to build a secure AI frontend using Chainlit. Chainlit is Python framework that allows us to create interactive AI applications. In this example we are going to reuse the weather tool created in a previous post. Also, we will implement OAuth2 authentication with a Nginx as a reverse proxy.
+Today we'll explore how to build a secure AI frontend using [Chainlit](https://docs.chainlit.io/get-started/overview). Chainlit is Python framework that allows us to create interactive AI applications. In this example we are going to reuse the weather tool created in a previous [post](https://gonzalo123.com/2025/07/14/building-production-ready-ai-agents-with-strands-agents-and-python/). Also, we will implement OAuth2 authentication with a Nginx as a reverse proxy.
 
 The project consists of four main components:
 
